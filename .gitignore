@@ -1,0 +1,5 @@
+# Ignore port work dirs
+**/work
+
+# Ignore vim swap files
+*.swp
