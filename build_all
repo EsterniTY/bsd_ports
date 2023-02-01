@@ -18,6 +18,7 @@ while read make_file; do
 
     if [ $? -ne 0 ]; then
         echo "Error making package"
+        rm -rf "$DISTDIR"
         exit
     fi
 
