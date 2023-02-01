@@ -1,0 +1,22 @@
+#!/usr/local/bin/bash
+
+PWD=$(pwd)
+REPO="$PWD/repo"
+DISTDIR="$PWD/dist"
+
+rm -rf "$DISTDIR"
+mkdir -p "$DISTDIR"
+rm -rf "$REPO"
+mkdir -p "$REPO/pkgs"
+
+while read make_file; do
+    folder=$(dirname "$make_file")
+    cd "$folder"
+    make package
+    find work/pkg -type f -name "*.pkg" -exec cp "{}" "$REPO/pkgs/" \;
+    make clean
+done < <(find "$PWD" -type f -name Makefile)
+
+rm -rf "$DISTDIR"
+
+pkg repo "$REPO"
