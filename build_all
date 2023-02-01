@@ -4,6 +4,8 @@ PWD=$(pwd)
 REPO="$PWD/repo"
 DISTDIR="$PWD/dist"
 
+export DISTDIR
+
 rm -rf "$DISTDIR"
 mkdir -p "$DISTDIR"
 rm -rf "$REPO"
@@ -13,6 +15,12 @@ while read make_file; do
     folder=$(dirname "$make_file")
     cd "$folder"
     make package
+
+    if [ $? -ne 0 ]; then
+        echo "Error making package"
+        exit
+    fi
+
     find work/pkg -type f -name "*.pkg" -exec cp "{}" "$REPO/pkgs/" \;
     make clean
 done < <(find "$PWD" -type f -name Makefile)
