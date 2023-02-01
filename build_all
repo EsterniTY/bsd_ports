@@ -22,7 +22,7 @@ while read make_file; do
         exit
     fi
 
-    find work/pkg -type f -name "*.pkg" -exec cp "{}" "$REPO/pkgs/" \;
+    find . -type f -name "*.pkg" -exec cp "{}" "$REPO/pkgs/" \;
     make clean
 done < <(find "$PWD" -type f -name Makefile)
 
