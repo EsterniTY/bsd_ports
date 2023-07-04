@@ -1,0 +1,9 @@
+--- CMakeLists.txt.orig	2023-06-30 11:37:26.895203000 +0300
++++ CMakeLists.txt	2023-06-30 11:37:44.120391000 +0300
+@@ -18,3 +18,6 @@
+ add_subdirectory(check_mt_temp)
+ add_subdirectory(check_mt_cpu)
+ add_subdirectory(check_iftraffic)
++
++set(CMAKE_INSTALL_BINDIR "libexec/nagios")
++install(TARGETS check_mt_cpu check_mt_temp check_iftraffic)
