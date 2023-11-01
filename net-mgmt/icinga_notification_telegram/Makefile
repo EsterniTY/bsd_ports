@@ -1,7 +1,7 @@
 PORTNAME=	icinga_notification_telegram
 DISTVERSIONPREFIX=	
-DISTVERSION=	1.0
-PORTREVISION=	0
+DISTVERSION=	1.1
+PORTREVISION=	1
 CATEGORIES=	net-mgmt
 
 MAINTAINER=	developer.kg@gmail.com
@@ -14,7 +14,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 USE_GITHUB=	yes
 GH_ACCOUNT=	esternity
 GH_PROJECT=     icinga_notification_telegram
-GH_TAGNAME=     v1.0
+GH_TAGNAME=     v1.1
 
 NO_BUILD=	yes
 NO_ARCH=	yes
